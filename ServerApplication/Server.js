@@ -55,7 +55,7 @@ Server.get("/SignIn", urlencodedParser, (request, response) => {
 });
 
 // GEt запрос на регистрацию
-Server.post("/SignUp", urlencodedParser, (request, response) => {
+Server.get("/SignUp", urlencodedParser, (request, response) => {
 	
 	// Сервер не отвечает
 	if (!request.query) {
