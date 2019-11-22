@@ -66,6 +66,11 @@ Server.post("/SignUp", urlencodedParser, (request, response) => {
 		response.send("Declined");
 	} else {
 		console.log(__dirname);
+		console.log(request.query["nickname"]);
+		console.log(request.query["name"]);
+		console.log(request.query["surname"]);
+		console.log(request.query["password"]);
+		console.log(request.query["phone"]);
 //		FileSystem.writeFile(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["nickname"]);
 //		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["password"]);
 //		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["name"]);
