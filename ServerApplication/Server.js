@@ -68,7 +68,8 @@ Server.get("/SignUp", urlencodedParser, (request, response) => {
 	console.log(request.query["surname"]);
 	console.log(request.query["password"]);
 	console.log(request.query["phone"]);
-	FileSystem.writeFile(__dirname + "/UsersRegistrationData/GAVNO.txt", request.query["nickname"]);
+	let shrek = path.join(__dirname, '/UsersRegistrationData/', `${request.query["nickname"]}.txt`);
+	console.log(shrek);
 //	FileSystem.writeFile(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["nickname"]);
 //	FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["password"]);
 //	FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["name"]);
