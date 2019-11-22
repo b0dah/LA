@@ -25,15 +25,12 @@ class SignUpViewController: UIViewController {
                           "password": textFields[3].text!,
                           "phone": textFields[4].text!]
         
-        let newUrl = url.withQueries(parameters)
-        
-        var request = URLRequest(url: newUrl!)
-        request.httpMethod = "GET"
-        
-        //guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-        //request.httpBody = httpBody
-        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
                 
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
@@ -42,12 +39,9 @@ class SignUpViewController: UIViewController {
             }
             
             guard let data = data else { return }
-            do {
-                let serverResponse = String(decoding: data, as: UTF8.self)
-                print(serverResponse)
-            } catch {
-                print(error)
-            }
+            
+            let serverResponse = String(decoding: data, as: UTF8.self)
+            print(serverResponse)
             
         }.resume()
         

@@ -55,12 +55,18 @@ Server.get("/SignIn", urlencodedParser, (request, response) => {
 });
 
 // GEt запрос на регистрацию
-Server.get("/SignUp", urlencodedParser, (request, response) => {
+Server.post("/SignUp", urlencodedParser, (request, response) => {
 	
 	// Сервер не отвечает
 	if (!request.query) {
 		return response.sendStatus(400);
 	}
+	
+	let result = JSON.parse(request.);
+	
+	
+	console.log(result.nickname);
+	
 	
 	console.log(__dirname);
 	console.log(request.query["nickname"]);

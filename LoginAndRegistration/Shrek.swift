@@ -25,38 +25,27 @@ class Shrek: UIViewController {
     @IBAction func signInTouchUp(_ sender: Any) {
         
         // POST запрос
-        guard let url = URL(string: signInUrl) else {
-            return
-        }
+        guard let url = URL(string: signInUrl) else { return }
         
         let parameters = ["login": self.shrek[0].text!,
                           "password": self.shrek[1].text!]
         
-        let newUrl = url.withQueries(parameters)
-        
-        var request = URLRequest(url: newUrl!)
-        request.httpMethod = "GET"
-
-//        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-
-//        request.httpBody = httpBody
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let newURL = url.withQueries(parameters)
                 
         let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
+        session.dataTask(with: newURL!) { (data, response, error) in
             if let response = response {
                 print(response)
             }
             
             guard let data = data else { return }
             do {
-              let json = try JSONSerialization.jsonObject(with: data, options: [])
-             print(json)
-        
-                let fetchedData: UserModel = try JSONDecoder().decode(UserModel.self, from: data)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
                 
-                print(fetchedData.login.value)
+                let fetchedData = try JSONDecoder().decode(UserModel.self, from: data)
                 
+                print(fetchedData)
             } catch {
                 print(error)
             }
