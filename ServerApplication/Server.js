@@ -18,7 +18,7 @@ const urlencodedParser = BodyParser.urlencoded({
 
 
 // GET запрос на вход в систему
-Server.get("/warning_vhodit_krisa", urlencodedParser, (request, response) => {
+Server.get("/SignIn", urlencodedParser, (request, response) => {
 
 	// Сервер не отвечает
 	if (!request.query) {
