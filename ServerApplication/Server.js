@@ -54,6 +54,21 @@ Server.get("/SignIn", urlencodedParser, (request, response) => {
 	response.send(JSON.stringify(signInInfo));
 });
 
+// GEt запрос на регистрацию
+Server.post("/SignUp", urlencodedParser, (request, response) => {
+	
+	// Сервер не отвечает
+	if (!request.query) {
+		return response.sendStatus(400);
+	}
+	
+	if (!request.query) {
+		response.send("Declined");
+	} else {
+		response.send("Your data was successfully saved!");
+	}
+});
+
 // Выставление порта на прослушку
 Server.listen(PORT);
 
