@@ -8,6 +8,7 @@ const BodyParser = require("body-parser");
 const PORT = process.env.PORT || 8080;
 
 const FileSystem = require("fs");
+const Path = require('path');
 
 // Создание экземпляра Express
 const Server = Express();
@@ -64,11 +65,11 @@ Server.post("/SignUp", urlencodedParser, (request, response) => {
 	if (!request.query) {
 		response.send("Declined");
 	} else {
-		FileSystem.writeFile(`${request.query["nickname"]}.txt`, request.query["nickname"]);
-		FileSystem.appendFileSync(`${request.query["nickname"]}.txt`, request.query["password"]);
-		FileSystem.appendFileSync(`${request.query["nickname"]}.txt`, request.query["name"]);
-		FileSystem.appendFileSync(`${request.query["nickname"]}.txt`, request.query["surname"]);
-		FileSystem.appendFileSync(`${request.query["nickname"]}.txt`, request.query["phone"]);
+		FileSystem.writeFile(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["nickname"]);
+		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["password"]);
+		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["name"]);
+		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["surname"]);
+		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["phone"]);
 		response.send("Your data was successfully saved!");
 	}
 });
