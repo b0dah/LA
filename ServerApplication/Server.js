@@ -71,11 +71,11 @@ Server.post("/SignUp", urlencodedParser, (request, response) => {
 		console.log(request.query["surname"]);
 		console.log(request.query["password"]);
 		console.log(request.query["phone"]);
-//		FileSystem.writeFile(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["nickname"]);
-//		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["password"]);
-//		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["name"]);
-//		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["surname"]);
-//		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["phone"]);
+		FileSystem.writeFile(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["nickname"]);
+		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["password"]);
+		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["name"]);
+		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["surname"]);
+		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["phone"]);
 		response.send("Your data was successfully saved!");
 	}
 });
