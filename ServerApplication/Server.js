@@ -62,10 +62,10 @@ Server.post("/SignUp", urlencodedParser, (request, response) => {
 		return response.sendStatus(400);
 	}
 	
-	let result = JSON.parse(request.);
-	
-	
-	console.log(result.nickname);
+//	let result = JSON.parse(request.);
+//	
+//	
+//	console.log(result.nickname);
 	
 	
 	console.log(__dirname);
