@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController {
             
             guard let data = data else { return }
             do {
-                let serverResponse = try JSONDecoder().decode(String.self, from: data)
+                let serverResponse = String(decoding: data, as: UTF8.self)
                 print(serverResponse)
             } catch {
                 print(error)
@@ -57,9 +57,13 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        for field in textFields {
-            field.text = "bodah"
-        }
+        self.textFields[0].text = "Ivan"
+        self.textFields[1].text = "Romanov"
+        self.textFields[2].text = "Bodah"
+        self.textFields[3].text = "qwerty"
+        self.textFields[4].text = "8800"
+        
+
     }
     
 

@@ -70,11 +70,11 @@ Server.get("/SignUp", urlencodedParser, (request, response) => {
 	console.log(request.query["phone"]);
 	let shrek = Path.join(__dirname, '/UsersRegistrationData/', `${request.query["nickname"]}.txt`);
 	console.log(shrek);
-//	FileSystem.writeFile(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["nickname"]);
-//	FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["password"]);
-//	FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["name"]);
-//	FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["surname"]);
-//	FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`), request.query["phone"]);
+	FileSystem.writeFileSync(shrek, request.query["nickname"]+"\n");
+	FileSystem.appendFileSync(shrek, request.query["password"]+"\n");
+	FileSystem.appendFileSync(shrek, request.query["name"]+"\n");
+	FileSystem.appendFileSync(shrek, request.query["surname"]+"\n");
+	FileSystem.appendFileSync(shrek, request.query["phone"]+"\n");
 	response.send("Your data was successfully saved!");
 });
 
