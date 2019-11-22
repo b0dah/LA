@@ -8,9 +8,9 @@
 
 import UIKit
 
+let signInUrl = "http://localhost:8080/SignIn"
+
 class Shrek: UIViewController {
-    
-    
     
     @IBOutlet var shrek: [UITextField]!
     
@@ -25,7 +25,9 @@ class Shrek: UIViewController {
     @IBAction func signInTouchUp(_ sender: Any) {
         
         // POST запрос
-        guard let url = URL(string: "http://localhost:8080/warning_vhodit_krisa") else { return }
+        guard let url = URL(string: signInUrl) else {
+            return
+        }
         
         let parameters = ["login": self.shrek[0].text!,
                           "password": self.shrek[1].text!]

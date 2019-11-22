@@ -34,16 +34,14 @@ Server.get("/SignIn", urlencodedParser, (request, response) => {
 		login: {
 			
 			description: "Your login",
-			value: "VALUE", //request.query["login"]
-
-			
-	
+			value: request.query["login"]	
 		},
+		
 		password: {
 			description: "Your password",
-			value: "VALUE",//request.query["password"]
+			value: request.query["password"]
 
-		},
+		}
 	};
 	
 	// отладка (Позыркать сформированный объект)
