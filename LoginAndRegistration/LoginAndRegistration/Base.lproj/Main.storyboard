@@ -292,6 +292,9 @@
                                         <state key="normal" title="Create Account">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signUpButtonTapped:" destination="y0z-yM-Q0L" eventType="touchUpInside" id="6Je-G3-gap"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -306,6 +309,13 @@
                         <viewLayoutGuide key="safeArea" id="fFj-L7-yYb"/>
                     </view>
                     <navigationItem key="navigationItem" id="A4A-tn-xiv"/>
+                    <connections>
+                        <outletCollection property="textFields" destination="P3l-0j-eNM" collectionClass="NSMutableArray" id="X2V-Ok-SZm"/>
+                        <outletCollection property="textFields" destination="Xlh-mp-vB2" collectionClass="NSMutableArray" id="maz-i7-MML"/>
+                        <outletCollection property="textFields" destination="qEC-mc-ebI" collectionClass="NSMutableArray" id="fad-O8-BE1"/>
+                        <outletCollection property="textFields" destination="e1I-OO-Irm" collectionClass="NSMutableArray" id="KJs-Bn-8e1"/>
+                        <outletCollection property="textFields" destination="GPA-s0-7gd" collectionClass="NSMutableArray" id="y8b-50-dIW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hH8-0F-zVu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
