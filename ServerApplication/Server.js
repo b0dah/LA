@@ -65,11 +65,12 @@ Server.post("/SignUp", urlencodedParser, (request, response) => {
 	if (!request.query) {
 		response.send("Declined");
 	} else {
-		FileSystem.writeFile(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["nickname"]);
-		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["password"]);
-		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["name"]);
-		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["surname"]);
-		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["phone"]);
+		console.log(__dirname);
+//		FileSystem.writeFile(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["nickname"]);
+//		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["password"]);
+//		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["name"]);
+//		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["surname"]);
+//		FileSystem.appendFileSync(Path.join(__dirname + `/UsersRegistrationData/${request.query["nickname"]}.txt`)`${request.query["nickname"]}.txt`, request.query["phone"]);
 		response.send("Your data was successfully saved!");
 	}
 });
