@@ -7,6 +7,8 @@ const BodyParser = require("body-parser");
 // Объявление номера прослушки порта сервера
 const PORT = process.env.PORT || 8080;
 
+const FileSystem = require("fs");
+
 // Создание экземпляра Express
 const Server = Express();
 
@@ -27,7 +29,7 @@ Server.get("/SignIn", urlencodedParser, (request, response) => {
 	
 	// отладка (позыркать что пришло)
 	//console.log(request);
-	console.log(request.query["login"]);
+//	console.log(request.query["login"]);
 	
 	// создание объекта
 	let signInInfo = {
@@ -36,7 +38,6 @@ Server.get("/SignIn", urlencodedParser, (request, response) => {
 			description: "Your login",
 			value: request.query["login"]	
 		},
-		
 		password: {
 			description: "Your password",
 			value: request.query["password"]
@@ -45,10 +46,10 @@ Server.get("/SignIn", urlencodedParser, (request, response) => {
 	};
 	
 	// отладка (Позыркать сформированный объект)
-	console.log(signInInfo);
+//	console.log(signInInfo);
 	
 	// отправка ответа на запрос (преобразование объекта в JSON и отправка на клиент)
-	console.log(JSON.stringify(signInInfo));
+//	console.log(JSON.stringify(signInInfo));
 	response.send(JSON.stringify(signInInfo));
 });
 
@@ -63,6 +64,11 @@ Server.post("/SignUp", urlencodedParser, (request, response) => {
 	if (!request.query) {
 		response.send("Declined");
 	} else {
+		FileSystem.writeFile(`${request.query["nickname"]}.txt`, request.query["nickname"]);
+		FileSystem.appendFileSync(`${request.query["nickname"]}.txt`, request.query["password"]);
+		FileSystem.appendFileSync(`${request.query["nickname"]}.txt`, request.query["name"]);
+		FileSystem.appendFileSync(`${request.query["nickname"]}.txt`, request.query["surname"]);
+		FileSystem.appendFileSync(`${request.query["nickname"]}.txt`, request.query["phone"]);
 		response.send("Your data was successfully saved!");
 	}
 });
